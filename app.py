@@ -33,9 +33,9 @@ from linebot.models import (
 app = Flask(__name__)
 
 # Channel Access Token
-line_bot_api = LineBotApi('ISI TOKEN OA KALIAN')
+line_bot_api = LineBotApi('7l9YPNtpgZgEIWr95CYsJIG4ZjYQtdJ4zZlDVJksiwfndhzVglrY1rL5Hn/fpA8JXvL54Q89kanIq7Aq4j6z8Gy7dJUhgi/Mje05HU8YVDxFoxY9VGtrYN2Wa+EndJtcJXORFjwZlFrLH23emr7W7AdB04t89/1O/w1cDnyilFU=')
 # Channel Secret
-handler = WebhookHandler('ISI CHHANEL SCREET')
+handler = WebhookHandler('67877a202a74304d2729c023af52ccb9')
 #===========[ NOTE SAVER ]=======================
 notes = {}
 
@@ -57,7 +57,7 @@ def handle_message(event):
     sender = event.source.user_id #get user_id
     gid = event.source.sender_id #get group_id
 #=====[ LEAVE GROUP OR ROOM ]==========
-    if text == 'bye':
+    if text == 'Bye':
         if isinstance(event.source, SourceGroup):
             line_bot_api.reply_message(
                 event.reply_token, TextSendMessage(text='Leaving group'))
@@ -71,7 +71,7 @@ def handle_message(event):
                 event.reply_token,
                 TextSendMessage(text="Bot can't leave from 1:1 chat"))
 #=====[ TEMPLATE MESSAGE ]=============
-    elif text == '/template':
+    elif text == 'Template':
         buttons_template = TemplateSendMessage(
             alt_text='template',
             template=ButtonsTemplate(
@@ -80,15 +80,15 @@ def handle_message(event):
                 actions=[
                     MessageTemplateAction(
                         label='Culum 1',
-                        text='/aditmadzs'
+                        text='Kris'
                     ),
                     MessageTemplateAction(
                         label='CULUM 2',
-                        text='/aditmadzs'
+                        text='Kris2'
                     ),
                     MessageTemplateAction(
                         label='CULUM 3',
-                        text='/aditmadzs'
+                        text='Pasukan Kemeng'
                     )
                 ]
             )
@@ -96,28 +96,28 @@ def handle_message(event):
         
         line_bot_api.reply_message(event.reply_token, buttons_template)
 #=====[ CAROUSEL MESSAGE ]==========
-    elif text == '/carousel':
+    elif text == 'Carousel':
         message = TemplateSendMessage(
             alt_text='OTHER MENU',
             template=CarouselTemplate(
                 columns=[
                     CarouselColumn(
                         title='ADD ME',
-                        text='Contact Aditmadzs',
+                        text='Contact Kris',
                         actions=[
                             URITemplateAction(
                                 label='>TAP HERE<',
-                                uri='https://line.me/ti/p/~adit_cmct'
+                                uri='https://line.me/ti/p/~krissthea'
                             )
                         ]
                     ),
                     CarouselColumn(
-                        title='Instagram',
-                        text='FIND ME ON INSTAGRAM',
+                        title='ADD ME',
+                        text='Contact Kris2',
                         actions=[
                             URITemplateAction(
                                 label='>TAP HERE!<',
-                                uri='http://line.me/ti/p/~adit_cmct'
+                                uri='http://line.me/ti/p/~batara_dewa'
                             )
                         ]
                     )
@@ -126,21 +126,21 @@ def handle_message(event):
         )
         line_bot_api.reply_message(event.reply_token, message)
 #=====[ FLEX MESSAGE ]==========
-    elif text == 'flex':
+    elif text == 'Flex':
         bubble = BubbleContainer(
             direction='ltr',
             hero=ImageComponent(
-                url='https://lh5.googleusercontent.com/VoOmR6tVRwKEow0HySsJ_UdrQrqrpwUwSzQnGa0yBeqSex-4Osar2w-JohT6yPu4Vl4qchND78aU2c5a5Bhl=w1366-h641-rw',
+                url='https://www.google.co.id/maps/place/Tasikmalaya,+Jawa+Barat/@-7.3599766,108.1627124,12z/data=!3m1!4b1!4m5!3m4!1s0x2e6f56e5924c576f:0x301e8f1fc2f2500!8m2!3d-7.3505808!4d108.2171633?hl=id',
                 size='full',
                 aspect_ratio='20:13',
                 aspect_mode='cover',
-                action=URIAction(uri='http://line.me/ti/p/~adit_cmct', label='label')
+                action=URIAction(uri='http://line.me/ti/p/~batara_dewa', label='label')
             ),
             body=BoxComponent(
                 layout='vertical',
                 contents=[
                     # title
-                    TextComponent(text='Aditmadzs', weight='bold', size='xl'),
+                    TextComponent(text='Kris', weight='bold', size='xl'),
                     # review
                     BoxComponent(
                         layout='baseline',
@@ -213,7 +213,7 @@ def handle_message(event):
                     ButtonComponent(
                         style='link',
                         height='sm',
-                        action=URIAction(label='Aditmadzs', uri="https://line.me/ti/p/~adit_cmct")
+                        action=URIAction(label='Kris', uri="https://line.me/ti/p/~batara_dewa")
                     )
                 ]
             ),
